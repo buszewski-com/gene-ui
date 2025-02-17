@@ -1,7 +1,7 @@
 import type { ComponentProps, ReactNode } from "react";
 
 export interface ButtonProps extends ComponentProps<"button"> {
-  variant?: "primary" | "secondary" | "ghost";
+  variant?: "primary" | "secondary";
   loadingText?: string;
   loadingIcon?: ReactNode;
 }
@@ -15,7 +15,7 @@ function Button({
   ref,
   ...props
 }: ButtonProps) {
-  const isLoading = Boolean(loadingText);
+  const isLoading = Boolean(loadingText ?? loadingIcon);
 
   return (
     <button
@@ -27,9 +27,9 @@ function Button({
       aria-label={loadingText && isLoading ? loadingText : undefined}
       {...props}
     >
-      {isLoading && loadingText ? (
+      {isLoading ? (
         <>
-          {loadingIcon} {loadingText}
+          {loadingIcon} {loadingText ?? children}
         </>
       ) : (
         children
