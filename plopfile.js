@@ -37,11 +37,6 @@ export default function plop(/** @type {import("plop").NodePlopAPI} */ plop) {
         template:
           'export { default as {{pascalCase name}} } from "./{{pascalCase name}}/{{pascalCase name}}";',
       },
-      {
-        type: "add",
-        path: "./src/ui/{{type}}s/{{pascalCase name}}/{{pascalCase name}}.module.scss",
-        template: '@use "../../styles/_fns.scss" as *;',
-      },
     ],
   });
 

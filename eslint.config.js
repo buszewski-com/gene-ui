@@ -7,10 +7,10 @@ import tseslint from "typescript-eslint";
 import importPlugin from "eslint-plugin-import";
 
 export default tseslint.config(
-  { ignores: ["dist", ".react-router", ".storybook"] },
+  { ignores: ["dist", ".storybook"] },
   {
     settings: {
-      react: { version: "18.3" },
+      react: { version: "19.0" },
       "import/resolver": {
         typescript: {},
         node: {
@@ -29,7 +29,7 @@ export default tseslint.config(
       ecmaVersion: 2020,
       globals: globals.browser,
       parserOptions: {
-        project: ["./tsconfig.json"],
+        project: ["./tsconfig.app.json"],
         tsconfigRootDir: "./",
       },
     },
@@ -40,15 +40,11 @@ export default tseslint.config(
     },
     rules: {
       ...reactHooks.configs.recommended.rules,
-      "import/no-unresolved": [
-        "error",
-        { ignore: [".css", "@react-router/dev"] },
-      ],
+      "import/no-unresolved": ["error"],
       "@typescript-eslint/consistent-type-imports": "error",
       "@typescript-eslint/only-throw-error": [
         "error",
         {
-          allow: ["Redirect", "Response"],
           allowThrowingAny: false,
           allowThrowingUnknown: false,
         },
