@@ -7,6 +7,9 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
+    "plop": "plop",
+    "postplop": "pnpm run format",
+    "format": "prettier -w ./src",
     "preview": "vite preview"
   },
   "dependencies": {

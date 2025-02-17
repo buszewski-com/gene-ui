@@ -9,6 +9,5 @@ export default {
   trailingComma: "all",
   printWidth: 80,
   bracketSpacing: true,
-  allowParent: "avoid",
   proseWrap: "always",
 };
