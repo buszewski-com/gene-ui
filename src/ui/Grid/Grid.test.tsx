@@ -3,7 +3,7 @@ import { vi } from "vitest";
 
 import Grid from "./Grid";
 
-describe("UI / Atoms / Grid", () => {
+describe("UI / Grid", () => {
   it("renders as div by default", () => {
     render(<Grid data-testid="grid" />);
     const element = screen.getByTestId("grid");

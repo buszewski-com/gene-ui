@@ -16,7 +16,7 @@ const LoadingSpinner = () => (
 );
 
 export default {
-  title: "Atoms/Button",
+  title: "Button",
   component: Button,
   tags: ["autodocs"],
   argTypes: {

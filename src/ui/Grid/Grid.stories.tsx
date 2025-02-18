@@ -16,7 +16,7 @@ const Box = () => (
 );
 
 export default {
-  title: "Atoms/Grid",
+  title: "Grid",
   component: Grid,
   tags: ["autodocs"],
   argTypes: {

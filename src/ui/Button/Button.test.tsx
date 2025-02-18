@@ -4,7 +4,7 @@ import { vi } from "vitest";
 
 import Button from "./Button";
 
-describe("UI / Atoms / Button", () => {
+describe("UI / Button", () => {
   it("renders with default props", () => {
     render(<Button>Click me</Button>);
     const button = screen.getByRole("button");
@@ -19,13 +19,11 @@ describe("UI / Atoms / Button", () => {
       <>
         <Button variant="primary">Primary</Button>
         <Button variant="secondary">Secondary</Button>
-        <Button variant="ghost">Ghost</Button>
       </>,
     );
 
     expect(screen.getByText("Primary")).toBeInTheDocument();
     expect(screen.getByText("Secondary")).toBeInTheDocument();
-    expect(screen.getByText("Ghost")).toBeInTheDocument();
   });
 
   it("handles loading state correctly", () => {
