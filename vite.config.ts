@@ -10,5 +10,10 @@ export default defineConfig({
     globals: true,
     environment: "happy-dom",
     setupFiles: ["./config/test.setup.ts"],
+    coverage: {
+      enabled: true,
+      exclude: ["src/ui/**/*.stories.tsx"],
+      include: ["src/ui/**/*.tsx"],
+    },
   },
 }) satisfies UserConfigExport;
