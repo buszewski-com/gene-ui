@@ -13,10 +13,6 @@ function BaseInput(props: ComponentProps<"input">) {
   return <input {...props} />;
 }
 
-function TextComponent(props: ComponentProps<"p">) {
-  return <p {...props} />;
-}
-
 function Input({
   label,
   labelProps,
@@ -46,20 +42,20 @@ function Input({
 
   if (label) {
     return (
-      <div role="group">
+      <div role="group" {...rest}>
         <label {...labelProps} htmlFor={inputId}>
           {label}
         </label>
         <BaseInput {...inputProps} />
         {description && (
-          <TextComponent id={descriptionId} {...descriptionProps}>
+          <p id={descriptionId} {...descriptionProps}>
             {description}
-          </TextComponent>
+          </p>
         )}
         {error && (
-          <TextComponent role="alert" id={errorId} {...errorProps}>
+          <p role="alert" id={errorId} {...errorProps}>
             {error}
-          </TextComponent>
+          </p>
         )}
       </div>
     );
