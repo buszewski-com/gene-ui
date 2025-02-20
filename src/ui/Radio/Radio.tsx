@@ -1,28 +1,20 @@
 import type { ComponentProps } from "react";
 
-interface Props extends ComponentProps<"input"> {
-  label?: string;
+interface Props extends Omit<ComponentProps<"input">, "type"> {
+  label: string;
   labelProps?: ComponentProps<"label">;
-  description?: string;
-  descriptionProps?: ComponentProps<"p">;
-  error?: string;
-  errorProps?: ComponentProps<"p">;
   wrapperProps?: ComponentProps<"div">;
+  description?: string;
+  error?: string;
 }
 
-function BaseInput(props: ComponentProps<"input">) {
-  return <input {...props} />;
-}
-
-function Input({
+function Radio({
   label,
   labelProps,
   id,
   name,
   description,
-  descriptionProps,
   error,
-  errorProps,
   "aria-describedby": ariaDescribedby,
   wrapperProps,
   ...rest
@@ -36,34 +28,29 @@ function Input({
 
   const inputProps: ComponentProps<"input"> = {
     ...rest,
+    type: "radio",
     id: inputId,
-    name: name,
+    name,
     "aria-describedby": describedBy || undefined,
     "aria-invalid": error ? true : undefined,
   };
 
-  if (label) {
-    return (
-      <div role="group" {...wrapperProps}>
+  return (
+    <div role="group" {...wrapperProps}>
+      <div className="radio-wrapper">
+        <input {...inputProps} />
         <label {...labelProps} htmlFor={inputId}>
           {label}
         </label>
-        <BaseInput {...inputProps} />
-        {description && (
-          <p id={descriptionId} {...descriptionProps}>
-            {description}
-          </p>
-        )}
-        {error && (
-          <p role="alert" id={errorId} {...errorProps}>
-            {error}
-          </p>
-        )}
       </div>
-    );
-  }
-
-  return <BaseInput {...inputProps} />;
+      {description && <div id={descriptionId}>{description}</div>}
+      {error && (
+        <div id={errorId} role="alert">
+          {error}
+        </div>
+      )}
+    </div>
+  );
 }
 
-export default Input;
+export default Radio;

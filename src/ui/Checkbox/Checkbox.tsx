@@ -5,6 +5,7 @@ interface Props extends Omit<ComponentProps<"input">, "type"> {
   labelProps?: ComponentProps<"label">;
   description?: string;
   error?: string;
+  wrapperProps?: ComponentProps<"div">;
 }
 
 function Checkbox({
@@ -15,6 +16,7 @@ function Checkbox({
   description,
   error,
   "aria-describedby": ariaDescribedby,
+  wrapperProps,
   ...rest
 }: Props) {
   const inputId = id ?? name;
@@ -34,7 +36,7 @@ function Checkbox({
   };
 
   return (
-    <div role="group" {...rest}>
+    <div role="group" {...wrapperProps}>
       <input {...inputProps} />
       <label {...labelProps} htmlFor={inputId}>
         {label}
