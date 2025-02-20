@@ -6,3 +6,4 @@ export { default as Grid } from "./Grid/Grid";
 export { default as Input } from "./Input/Input";
 export { default as Radio } from "./Radio/Radio";
 export { default as Select } from "./Select/Select";
+export { default as Textarea } from "./Textarea/Textarea";
