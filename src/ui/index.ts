@@ -1,3 +1,4 @@
+export { default as AppHeader } from "./AppHeader/AppHeader";
 export type { ButtonProps } from "./Button/Button";
 export { default as Button } from "./Button/Button";
 export { default as Checkbox } from "./Checkbox/Checkbox";
