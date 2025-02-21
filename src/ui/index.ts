@@ -5,6 +5,7 @@ export { default as Checkbox } from "./Checkbox/Checkbox";
 export { default as DefinitionList } from "./DefinitionList/DefinitionList";
 export { default as Form } from "./Form/Form";
 export { default as Grid } from "./Grid/Grid";
+export { default as Image } from "./Image/Image";
 export { default as Input } from "./Input/Input";
 export { default as Radio } from "./Radio/Radio";
 export { default as Select } from "./Select/Select";
