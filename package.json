@@ -1,11 +1,24 @@
 {
-  "name": "gene",
-  "private": true,
-  "version": "0.0.0",
+  "name": "@tomekbuszewski/gene",
+  "version": "0.0.3",
   "type": "module",
+  "description": "Simple headless UI library",
+  "author": "Tomasz Buszewski",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tomekbuszewski/Gene.git"
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "postbuild": "tsc -p tsconfig.app.json",
+    "build": "vite build",
     "lint": "eslint .",
     "plop": "plop",
     "postplop": "pnpm run format",
@@ -33,6 +46,7 @@
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.2.0",
     "@testing-library/user-event": "^14.6.1",
+    "@types/node": "^22.13.4",
     "@types/react": "^19.0.8",
     "@types/react-dom": "^19.0.3",
     "@vitejs/plugin-react": "^4.3.4",
@@ -65,5 +79,9 @@
     "extends": [
       "plugin:storybook/recommended"
     ]
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/tomekbuszewski/Gene/issues"
+  },
+  "homepage": "https://github.com/tomekbuszewski/Gene#readme"
 }
