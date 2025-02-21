@@ -22,13 +22,15 @@ describe("UI / Image", () => {
     ];
 
     const { container } = render(
-      <Image sources={sources} alt="Responsive image" />,
+      <Image sources={sources} alt="Responsive image" src="/fallback.jpg" />,
     );
 
     const picture = container.querySelector("picture");
     const sourceElements = container.querySelectorAll("source");
+    const image = container.querySelector("img");
 
     expect(picture).toBeInTheDocument();
+    expect(image).toBeInTheDocument();
     expect(sourceElements).toHaveLength(2);
     expect(sourceElements[0]).toHaveAttribute("media", "(max-width: 768px)");
   });

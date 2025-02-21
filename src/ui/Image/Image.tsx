@@ -10,16 +10,17 @@ interface BaseProps {
   caption?: ReactNode;
   imgProps?: ComponentProps<"img">;
   captionProps?: ComponentProps<"figcaption">;
+  src: string;
 }
 
 interface SingleImageProps extends BaseProps {
-  src: string;
   sources?: never;
+  pictureProps?: never;
 }
 
 interface ResponsiveImageProps extends BaseProps {
-  src?: never;
   sources: Source[];
+  pictureProps?: ComponentProps<"picture">;
 }
 
 type Props = SingleImageProps | ResponsiveImageProps;
@@ -31,14 +32,19 @@ function Image({
   caption,
   imgProps,
   captionProps,
+  pictureProps,
   ...rest
 }: Props) {
   return (
     <figure {...rest}>
       {sources ? (
-        <picture>
-          {sources.map((source, index) => (
-            <source key={index} srcSet={source.srcSet} media={source.media} />
+        <picture {...pictureProps}>
+          {sources.map((source) => (
+            <source
+              key={source.srcSet}
+              srcSet={source.srcSet}
+              media={source.media}
+            />
           ))}
           <img {...imgProps} src={src} alt={alt} />
         </picture>
