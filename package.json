@@ -7,7 +7,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tomekbuszewski/Gene.git"
+    "url": "git+https://github.com/buszewski-com/gene-ui.git"
   },
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -81,7 +81,7 @@
     ]
   },
   "bugs": {
-    "url": "https://github.com/tomekbuszewski/Gene/issues"
+    "url": "https://github.com/buszewski-com/gene-ui/issues"
   },
-  "homepage": "https://github.com/tomekbuszewski/Gene#readme"
+  "homepage": "https://github.com/buszewski-com/gene-ui#readme"
 }
